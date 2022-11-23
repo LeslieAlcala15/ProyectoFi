@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h3>
+    <br>
+    <Center> <b> Editar Decoraciones </b> </Center>
+
+</h3>
+   <br>
+   <br>
+    <form action="/decoraciones_fedita/{{decoraciones.0}}" method="post">
+        <div class="container">
+          <div class="form-row">
+               <div class="col-xs-12 ">
+                <div class="mb-3">
+                      <label for="descripcion" class="form-label"><strong>Ingrese las decoraciones:</strong></label>
+                      <input type="text" class="form-control" name="descripcion" id="descripcion" placeholder="decoraciones" value="{{decoraciones.1}}">
+                </div>
+
+                </div>
+              <button type="submit" class="btn btn-info">Actualizar</button>
+          </div>
+    </div>
+
+</form>
+
+{% endblock %}

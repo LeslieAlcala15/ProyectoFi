@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="sp">
+<body> 
+  <center><img src="static/images/logo.png" width="300px" height="150px"></center><br><hr>
+  <center><h2><strong><FONT SIZE="60">Pasteleria "Cake boss"</FONT></h2></center><hr>
+  <center><table width="100%" border="0" cellpadding="2%"></table></center>
+<br>
+  <center><h3><strong>¡Los pasteles más Deliciosos!</h3></center>
+  <center><table width="100%" border="0" cellpadding="2%"></table></center>
+<br>
+  <div class="contenedor"></div>
+    <div class="item1"></div>
+    <div class="item2"></div>
+    <div class="item1"></div>
+    <div class="item1"></div>
+  </div>
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="static/images/boda.png" class="d-block w-100" alt="Explora">
+      </div>
+      <div class="carousel-item">
+        <img src="static/images/cute.png" class="d-block w-100" alt="Nuestros">
+      </div>
+      <div class="carousel-item">
+        <img src="static/images/chocolate.png" class="d-block w-100" alt="Trabajos">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <br><br><hr><br>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script> 
+</body>
+{%endblock%}
+</html>

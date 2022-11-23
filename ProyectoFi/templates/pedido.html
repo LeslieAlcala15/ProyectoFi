@@ -1,0 +1,169 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+<br>
+<center><h1><strong>Pedido</h1></center>
+<center><table width="80%" border="0" cellpadding="2%"></table></center>
+<tr>
+<td>
+<table class="table">
+<thead>
+<tr>
+<th class="table-dark" scope="col">Nombre del Pedido</th>
+<td class="table-dark"></td>
+<td class="table-dark"><center><a class="btn btn-dark" style="background-color: #AE876A;"
+href="/pedido_agregar" role="button">Agregar nuevo Pedido</a></center></td>
+<br>
+</tr>
+</thead>
+<tbody>
+<table class="table table-striped table-secondary">
+{% for i in ped %}
+<tr>
+<td width="55%">{{i.1}}</td>
+<td width="15%"><center><a class="btn btn-secondary"
+href="/pedido_fdetalle/{{i.0}}" role="button">Detalle</a></center></td>
+<td width="15%"><center><a class="btn btn-secondary"
+
+href="/pedido_editar/{{i.0}}" role="button">Editar</a></center></td>
+
+<td width="15%"><center><a class="btn btn-outline-secondary"
+
+href="/pedido_borrar/{{i.0}}" role="button">Borrar</a></center></td>
+
+</tr>
+{% endfor %}
+</table>
+</tbody>
+</table>
+<h3>
+
+<h3><CENTER> <b> Detalle: </b> </CENTER></h3>
+
+<br>
+<form class="row g-3" action="/pedido_fdetalle/" method="GET">
+<div class="col-md-12">
+<label for="nomPedido" class="form-label">Nombre del Pedido</label>
+<input type="text" class="form-control" name="nomPedido" id="nomPedido" value="{{dat.3}}"
+readonly="readonly"></input>
+</div>
+<br>
+<div class="col-md-6">
+<label for="codPedido" class="form-label">Código de Pedido</label>
+<input type="text" class="form-control" name="codPedido" id="codPedido" value="{{dat.1}}"
+readonly="readonly"></input>
+</div>
+<div class="col-md-6">
+<label for="idTipopan" class="form-label">Tipo de Pan</label>
+<input type="text" class="form-control" name="idTipopan" id="idTipopan" value="{{catTipopan.1}}"
+readonly="readonly"></input>
+</div>
+<div class="col-md-12">
+<label for="tipoevento" class="form-label">Tipo de Evento</label>
+<input type="text" class="form-control" name="tipoevento" id="tipoevento" value="{{dat.4}}"
+readonly="readonly"></input>
+</div>
+<div class="col-md-8">
+<label for="fechaentrega" class="form-label">Fecha de Entrega</label>
+<input type="text" class="form-control" name="fechaentrega" id="fechaentrega" value="{{dat.5}}"
+readonly="readonly"></input>
+</div>
+<div class="col-md-4">
+<label for="adelanto" class="form-label">Adelanto</label>
+<input type="text" class="form-control" name="adelanto" id="adelanto" value="{{dat.6}}"
+readonly="readonly"></input>
+</div>
+<div class="col-md-12">
+<label for="numtelefono" class="form-label">Numero de Telefono</label>
+<input type="text" class="form-control" name="numtelefono" id="numtelefono" value="{{dat.7}}"
+readonly="readonly"></input>
+</div>
+<div class="col-md-12">
+<label for="nomcliente" class="form-label">Nombre del Cliente</label>
+<input type="text" class="form-control" name="nomcliente" id="nomcliente"
+value="{{dat.8}}" readonly="readonly"></input>r
+</div>
+<div class="col-md-12">
+<label for="identificacion" class="form-label">Identificacion del Cliente</label>
+<input type="text" class="form-control" name="identificacion" id="identificacion" value="{{dat.9}}"
+readonly="readonly"></input>
+</div>
+<div class="col-md-4">
+<label for="edad" class="form-label">Edad Cliente</label>
+
+<input type="text" class="form-control" name="edad" id="edad" value="{{dat.10}}"
+readonly="readonly"></input>
+</div>
+<div class="col-md-4">
+<label for="idForma" class="form-label">Forma</label>
+<input type="text" class="form-control" name="idForma" id="idForma"
+value="{{catForma.1}}" readonly="readonly"></input>
+</div>
+<div class="col-md-4">
+<label for="idCubierta" class="form-label">Tipo cubierta</label>
+<input type="text" class="form-control" name="idCubierta" id="idCubierta"
+value="{{catCubierta.1}}" readonly="readonly"></input>
+</div>
+<div class="col-md-4">
+<label for="idNiveles" class="form-label">Niveles</label>
+<input type="text" class="form-control" name="idNiveles" id="idNiveles"
+value="{{catNiveles.1}}" readonly="readonly"></input>
+</select>
+</div>
+<div class="col-md-4">
+<label for="idRelleno" class="form-label">Relleno</label>
+<input type="text" class="form-control" name="idRelleno" id="idRelleno" value="{{catRelleno.1}}"
+readonly="readonly"></input>
+</div>
+<div class="col-md-12">
+<label for="quienrecibe" class="form-label">Quien recibira el pedido</label>
+<input type="text" class="form-control" name="quienrecibe" id="quienrecibe" value="{{dat.16}}"
+readonly="readonly"></input>
+</div>
+<div class="col-md-12">
+<label for="tematica" class="form-label">Tematica deseada</label>
+<input type="text" class="form-control" name="tematica" id="tematica" value="{{dat.17}}"
+readonly="readonly"></input>
+</div>
+<div class="col-md-12">
+<label for="modoentrega" class="form-label">Modo de Entrega</label>
+<input type="text" class="form-control" name="modoentrega" id="modoentrega" value="{{dat.18}}"
+readonly="readonly"></input>
+</div>
+<div class="col-md-12">
+<label for="textopastel" class="form-label">Texto en el pastel</label>
+<input type="text" class="form-control" name="textopastel" id="textopastel" value="{{dat.19}}"
+readonly="readonly"></input>
+</div>
+<div class="col-md-12">
+<label for="email" class="form-label">Email del Cliente</label>
+<input type="text" class="form-control" name="email" id="email"
+value="{{dat.20}}" readonly="readonly"></input>
+</div>
+<div class="col-md-12">
+<label for="numtarjeta" class="form-label">Numero de Tarjeta</label>
+<input type="text" class="form-control" name="numtarjeta" id="numtarjeta"
+value="{{dat.21}}" readonly="readonly"></input>
+<div class="col-md-12">
+<label for="especificaciones" class="form-label">Especificaciones(Colores del pedido,Tipo de harina, Sabor del glaseado, etc)</label>
+<input type="text" class="form-control" name="especificaciones" id="especificaciones"
+value="{{dat.22}}" readonly="readonly"></input>
+</div>
+<div class="col-6">
+<label>Decoraciones:</label>
+{% for deco in catDecoraciones %}
+<input type="text" class="form-control" name="d{{deco.1}}" id="d{{deco.1}}"
+value="{{deco.2}}" readonly="readonly"></input>
+{% endfor %}
+</div>
+<div class="col-6">
+<label>Presupuesto:</label>
+{% for pres in catPresupuesto %}
+<input type="text" class="form-control" name="p{{pres.1}}" id="p{{pres.1}}"
+
+value="{{pres.2}}" readonly="readonly"></input>
+{% endfor %}
+</div>
+</form>
+</div>
+{% endblock %}

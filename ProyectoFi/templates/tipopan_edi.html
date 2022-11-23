@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h3>
+    <br>
+    <Center> <b> Editar tipo de pan </b> </Center>
+
+</h3>
+   <br>
+   <br>
+    <form action="/tipopan_fedita/{{tipopan
+        .0}}" method="post">
+        <div class="container">
+          <div class="form-row">
+               <div class="col-xs-12 ">
+                <div class="mb-3">
+                      <label for="descripcion" class="form-label"><strong>Ingrese el tipo de pan:</strong></label>
+                      <input type="text" class="form-control" name="descripcion" id="descripcion" placeholder="tipopan" value="{{tipopan.1}}">
+                </div>
+
+                </div>
+              <button type="submit" class="btn btn-info">Actualizar</button>
+          </div>
+    </div>
+
+</form>
+
+{% endblock %}

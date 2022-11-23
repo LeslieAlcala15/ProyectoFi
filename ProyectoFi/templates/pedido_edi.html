@@ -1,0 +1,218 @@
+{% extends "layout.html" %}
+{% block content %}
+   <div class="container">
+
+<h3>
+   <CENTER> <b> Pedido </b> </CENTER>
+
+</h3>
+
+  <br>
+<form class="row g-3"  action="/pedido_fedita/{{dat.0}}" method="post">
+   <div class="col-md-6">
+      <label for="codPedido" class="form-label">Código de Pedido</label>
+      <input type="text" class="form-cotrol" name="codPedido" id="codPedido" value="{{dat.1}}"></input>
+   </div>
+
+   <div class="col-md-6">
+       <label for="idTipopan" class="form-label">Área de adscripción</label>
+       <select name="idTipopan" id="idTipopan" class = "form-select" >
+           <option selected="true" value="{{Tipopan.0}}" >{{Tipopan.1}}</option>
+            {%
+               for i in catTipopan
+            %}
+               <option value="{{i.0}}">{{i.1}}</option>
+            {% endfor %}
+       </select>
+
+   </div>
+   <div class="col-md-12">
+      <label for="nompedido" class="form-label">Nombre del Pedido</label>
+      <input type="text" class="form-control" name="nomPedido" id="nomPedido" value="{{dat.3}}"></input>
+   </div>
+   <div class="col-md-12">
+      <label for="tipoevento" class="form-label">Tipo de Evento</label>
+      <input type="text" class="form-control" name="tipoevento" id="tipoevento" value="{{dat.4}}" ></input>
+   </div>
+   <div class="col-md-8">
+      <label for="fechaentrega" class="form-label">Hora de Entrega</label>
+      <input type="text" class="form-control" name="fechaentrega" id="fechaentrega" value="{{dat.5}}" ></input>
+   </div>
+   <div class="col-md-4">
+      <label for="adelanto" class="form-label">Adelanto</label>
+      <input type="text" class="form-control" name="adelanto" id="adelanto" value="{{dat.6}}" ></input>
+   </div>
+   <div class="col-md-12">
+      <label for="numtelefono" class="form-label">Numero Telefono</label>
+      <input type="text" class="form-control" name="numtelefono" id="numtelefono" value="{{dat.7}}" ></input>
+   </div>
+   <div class="col-md-12">
+      <label for="nomcliente" class="form-label">Nombre Cliente</label>
+      <input type="text" class="form-control" name="nomcliente" id="nomcliente" value="{{dat.8}}" ></input>
+   </div>
+   <div class="col-md-12">
+       <label for="identificacion" class="form-label">Identificacion del Cliente</label>
+       <input type="text" class="form-control" name="identificacion" id="identificacion" value="{{dat.9}}" ></input>
+   </div>
+   <div class="col-md-4">
+       <label for="edad" class="form-label">Edad del Cliente</label>
+       <input type="text" class="form-control" name="edad" id="edad" value="{{dat.10}}" ></input>
+   <div class="col-md-4">
+        <label for="idForma" class="form-label">Forma</label>
+        <select name="idForma" id="idForma" class = "form-select">
+            {%
+               for i in catForma
+            %}
+               <option value="{{i.0}}">{{i.1}}</option>
+            {% endfor %}
+       </select>
+
+   </div>
+   <div class="col-md-4">
+        <label for="idCubierta" class="form-label">Tipo de Cubiertas</label>
+        <select name="idCubierta" id="idCubierta" class = "form-select" onChange="miFunc4()">
+        <option selected="true" value="{{Cubierta.0}}" >{{Cubierta.1}}</option>
+            {%
+               for i in catCubierta
+            %}
+               <option value="{{i.0}}">{{i.1}}</option>
+            {% endfor %}
+       </select>
+       <script>
+           function miFunc4(){
+            var esco = document.getElementById('idCubierta').value;
+                if (esco == 1)
+                 {document.getElementById('idNiveles').disabled=true;
+                 document.getElementById('idNiveles').value=false;
+                  document.getElementById('idRelleno').disabled=true;
+                  document.getElementById('idRelleno').value=false;}
+                else
+                 {document.getElementById('idNiveles').disabled=false;
+                  document.getElementById('idRelleno').disabled=false;
+                  document.getElementById('idNiveles').value=true;
+                  document.getElementById('idRelleno').value=true;}
+            }
+        </script>
+   </div>
+   <div class="col-md-4">
+        <label for="idNiveles" class="form-label">Niveles</label>
+        <select name="idNiveles" id="idNiveles" class = "form-select">
+        <option selected="true" value="{{Niveles.0}}" >{{Niveles.1}}</option>
+           {%
+               for i in catNiveles
+            %}
+               <option value="{{i.0}}">{{i.1}}</option>
+            {% endfor %}
+       </select>
+   </div>
+   <div class="col-md-4">
+        <label for="idRelleno" class="form-label">Relleno</label>
+        <select name="idRelleno" id="idRelleno" class = "form-select">
+            {%
+               for i in catRelleno
+            %}
+               <option value="{{i.0}}">{{i.1}}</option>
+            {% endfor %}
+       </select>
+   </div>
+   <div class="col-md-12">
+       <label for="quienrecibe" class="form-label">Quien recibira el pedido</label>
+       <input type="text" class="form-control" name="quienrecibe" id="quienrecibe" value="{{dat.16}}" ></input>
+   </div>
+   <div class="col-md-12">
+       <label for="tematica" class="form-label">Tematica Deseada</label>
+       <input type="text" class="form-control" name="tematica" id="tematica" value="{{dat.17}}" ></input>
+
+    </div>
+    <div class="col-md-12">
+        <label for="modoentrega" class="form-label">Modo Entrega</label>
+        <input type="text" class="form-control" name="modoentrega" id="modoentrega" value="{{dat.18}}" ></input>
+    </div>
+    <div class="col-md-12">
+        <label for="textopastel" class="form-label">Texto en el Pastel</label>
+        <input type="text" class="form-control" name="textopastel" id="textopastel" value="{{dat.19}}" ></input>
+    </div>
+    <div class="col-md-12">
+        <label for="email" class="form-label">Email del Cliente</label>
+        <input type="text" class="form-control" name="email" id="email" value="{{dat.20}}" ></input>
+    </div>
+    <div class="col-md-12">
+        <label for="numtarjeta" class="form-label">Numero de Tarjeta</label>
+        <input type="text" class="form-control" name="numtarjeta" id="numtarjeta" value="{{dat.21}}" ></input>
+    </div>
+    <div class="col-md-12">
+        <label for="especificaciones" class="form-label">Especificaciones(Colores del pedido, Tipo de Harina, Sabor del glaseado, etc)</label>
+        <input type="text" class="form-control" name="especificaciones" id="especificaciones" value="{{dat.22}}" ></input>
+    </div>
+    <div class="col-md-12">
+        <label>Decoraciones y presupuesto</label>
+    </div>
+    <div class="col-6">
+        <span>Decoraciones:</span>
+                    <div class="form-check" >
+                    <input class="form-check-input" type="checkbox" value="" name = "i1" id="i1"  onChange="miFunc5()">
+                    <label class="form-check-label" for="i1">NO REQUERIDO</label>
+                    </div>
+        {% for deco in catDecoraciones
+             if (deco.0)>1: %}
+                    <div class="form-check" >
+                    <input class="form-check-input" type="checkbox" value="" name = "i{{deco.0}}" id="i{{deco.0}}" >
+                    <label class="form-check-label" for="i{{deco.0}}">
+                       {{deco.1}}
+                    </label>
+                    </div>
+         {% endfor %}
+        <script>
+           function miFunc5(){
+           {% for deco in catDecoraciones %}
+           var isChecked = document.getElementById('i1').checked;
+             if ( {{deco.0}}>1 && isChecked ) {
+                  document.getElementById('i{{deco.0}}').disabled=true;
+                  document.getElementById('i{{deco.0}}').checked=false; }
+             else
+                 { document.getElementById('i{{deco.0}}').disabled=false;}
+
+           {% endfor %}
+            }
+        </script>
+    </div>
+   <div class="col-6">
+   <span>Presupuesto:</span>
+       <div class="form-check" >
+       <input class="form-check-input" type="checkbox" value="" name = "h1" id="h1"  onChange="miFunc6()">
+       <label class="form-check-label" for="h1">NO REQUERIDAS</label>
+       </div>
+   {% for pres in catPresupuesto
+       if (pres.0)>1: %}
+      <div class="form-check">
+      <input class="form-check-input" type="checkbox"  name ="h{{pres.0}}"  id="h{{pres.0}}">
+      <label class="form-check-label" for="h{{pres.0}}">
+          {{pres.1}}
+      </label>
+      </div>
+   {% endfor %}
+     <script>
+           function miFunc6(){
+           {% for pres in catPresupuesto %}
+           var isChecked = document.getElementById('h1').checked;
+             if ( {{pres.0}}>1 && isChecked 
+              {
+                  document.getElementById('h{{pres.0}}').disabled=true;
+                  document.getElementById('h{{pres.0}}').checked=false; }
+             else
+                 { document.getElementById('h{{pres.0}}').disabled=false;}
+
+           {% endfor %}
+            }
+        </script>
+
+  </div>
+
+
+
+
+   <div class="col-md-12">
+          <button type="submit" class="btn btn-danger">Enviar</button>
+    </div>
+</form>
+{% endblock %}

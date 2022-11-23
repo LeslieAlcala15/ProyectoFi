@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h3>
+    <br>
+    <Center> <b> Editar presupuesto </b> </Center>
+
+</h3>
+   <br>
+   <br>
+    <form action="/presupuesto_fedita/{{presupuesto.0}}" method="post">
+        <div class="container">
+          <div class="form-row">
+               <div class="col-xs-12 ">
+                <div class="mb-3">
+                      <label for="descripcion" class="form-label"><strong>Ingrese el presupuesto:</strong></label>
+                      <input type="text" class="form-control" name="descripcion" id="descripcion" placeholder="presupuesto" value="{{presupuesto.1}}">
+                </div>
+
+                </div>
+              <button type="submit" class="btn btn-info">Actualizar</button>
+          </div>
+    </div>
+
+</form>
+
+{% endblock %}

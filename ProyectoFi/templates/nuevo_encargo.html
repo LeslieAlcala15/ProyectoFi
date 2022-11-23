@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!Doctypehtml>
+<html lang="es">
+<head>
+</body>
+<br>
+<section class="main">
+    <section class="articles">
+    <meta charset="UTF-8">
+    </head>
+    <nav class="navegacion">
+        <ul class="menu">
+              <br>
+              <section class="main">
+                  <section class="articles">
+                      <article>
+              <div class="container">
+              <h3>
+              <CENTER> <b> Agregar Encargo </b> </CENTER>
+              </h3>
+              <br>
+              <center><div class="col-md-8"></div></center>
+              <form class="row g-3" action="/encargo_fagrega" method="post">
+                <div class="row">
+              <div class="col-4">
+              <label for="folio" class="form-label">folio</label>
+              <input type="text" class="form-control" name="folio" id="folio" required></input>
+              </div>
+
+              <div class="col-4">
+              <label for="idTipopan" class="form-label">Tipo de Pan</label>
+              <select name="idTipopan" id="idTipopan" class = "form-select" >
+              <option selected>Elige...</option>
+              {% for i in catTipopan %}
+              <option value="{{i.0}}">{{i.1}}</option>
+              {% endfor %}
+              </select>
+              </div>
+
+              <div class="col-4">
+              <label for="fechapedido" class="form-label">Fecha de Pedido</label>
+              <input type="date" class="form-control" name="fechapedido" id="fechapedido" required></input>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+                  <label for="idPedido" class="form-label">Pedido</label>
+                  <select name="idPedido" id="idPedido" class = "form-select" >
+                  <option selected>Elige...</option>
+                  {% for i in catPedido %}
+                  <option value="{{i.0}}">{{i.1}}</option>
+                  {% endfor %}
+                  </select>
+                  </div>
+                </div>
+                <div class="row">
+              <div class="col-12">
+              <label for="nomSolicita" class="form-label">Nombre Del Cliente y Direccion</label>
+              <input type="text" class="form-control" name="nomSolicita" id="nomSolicita" required></input>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+              <label for="fechaautorizacion" class="form-label">Fecha de Autorizacion</label>
+              <input type="date" class="form-control" name="fechaautorizacion" id="fechaautorizacion" required></input>
+              </div>
+
+              <div class="col-4">
+              <label for="fechaentrega" class="form-label">Fecha de Entrega</label>
+              <input type="date" class="form-control" name="fechaentrega" id="fechaentrega" required></input>
+              </div>
+
+              <div class="col-4">
+                  <label for="tipopago" class="form-label">Tipo de Pago</label>
+                  <select name="tipopago" id="tipopago" class = "form-select">
+                  <option value="Temporal" selected>Elige...</option>
+                  <option value="Temporal">Deposito</option>
+                  <option value="Permanente">Tarjeta</option>
+                  </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                  <span><b>Bancos: </b></span>
+             </div>
+          
+             <div class="col-12">
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="bancos" id="bancos" value="Baja">
+                <label class="form-check-label" for="bancos">BBVA Bancomer</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="bancos" id="bancos" value="Incapacidad">
+                  <label class="form-check-label" for="bancos">Banco Santader</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="bancos" id="bancos" value="Licencia o Permiso" >
+                  <label class="form-check-label" for="bancos">Banorte</label>
+                </div>
+
+                  <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="bancos" id="bancos" value="Nueva Creación" >
+                  <label class="form-check-label" for="bancos">HSBC</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="bancos" id="bancos" value="Defunción">
+                <label class="form-check-label" for="bancos">MasterCard</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="bancos" id="bancos" value="Otro" >
+                  <label class="form-check-label" for="bancos">Otro</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label" for="motivoEspecifique">Deposito(Num cuento)</label>
+                  <input class="form-control" type="text" name="motivoEspecifique" id="motivoEspecifique"></input>
+                </div>
+             </div>
+            </div>
+             <div class="col-12">
+              <center><button type="submit" class="btn btn-light" style="background-color: #AE876A;">Enviar</button></center>
+              </div>
+              </form>
+              </div>
+              
+            </div>
+  {%endblock%}
+</html>
